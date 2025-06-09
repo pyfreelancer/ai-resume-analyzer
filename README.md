@@ -31,5 +31,5 @@ An intelligent web application built with **Streamlit** that allows users to upl
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/your-username/ai-resume-analyzer.git
+   git clone https://github.com/pyfreelancer/ai-resume-analyzer.git
    cd ai-resume-analyzer
