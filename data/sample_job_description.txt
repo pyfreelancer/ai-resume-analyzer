@@ -1,0 +1,21 @@
+Job Title: Data Analyst
+
+We are seeking a highly motivated and detail-oriented Data Analyst to join our analytics team. The ideal candidate will have strong analytical skills and a passion for turning data into actionable insights.
+
+Responsibilities:
+- Collect, process, and analyze large datasets using Python and SQL
+- Develop dashboards and reports using tools like Tableau or Power BI
+- Perform statistical analysis and predictive modeling
+- Collaborate with cross-functional teams to identify business opportunities
+- Communicate insights and recommendations clearly to stakeholders
+
+Requirements:
+- Bachelor’s degree in Computer Science, Statistics, or related field
+- Strong proficiency in Python, especially with pandas and NumPy
+- Experience with SQL and database management
+- Familiarity with data visualization tools such as Tableau or Power BI
+- Excellent problem-solving and communication skills
+
+Preferred:
+- Experience with machine learning or predictive analytics
+- Knowledge of cloud platforms (AWS, Azure, GCP)
