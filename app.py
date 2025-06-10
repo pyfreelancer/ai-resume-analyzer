@@ -8,12 +8,47 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os # Added for path manipulation
 
-import spacy
-from pathlib import Path
+# --- SpaCy Model Loading (Correct & Robust for Streamlit Cloud) ---
+# Define a local directory within the app's space where spaCy models can be stored.
+# This directory is writable on Streamlit Sharing.
+SPACY_MODEL_DIR = os.path.join(os.path.dirname(__file__), ".spacy_models")
+os.makedirs(SPACY_MODEL_DIR, exist_ok=True) # Ensure the directory exists
 
-model_path = Path(__file__).parent / "en_core_web_sm"
-nlp = spacy.load(model_path)
+# Set the SPACY_DATA environment variable to this custom directory.
+# This tells spaCy where to look for models and where to download them using spacy.cli.download.
+os.environ["SPACY_DATA"] = SPACY_MODEL_DIR
+
+# Define the specific model we want to use (preferring lg for resume analysis)
+SPACY_MODEL_NAME = "en_core_web_lg" # Changed to lg for better performance
+
+# Check if the model is already downloaded in our custom path
+# spacy.util.is_model_loaded check might be too complex here, simple path check is often enough.
+model_path_exists = os.path.exists(os.path.join(SPACY_MODEL_DIR, SPACY_MODEL_NAME))
+
+if not model_path_exists:
+    st.warning(f"SpaCy '{SPACY_MODEL_NAME}' model not found. Attempting to download into custom path...")
+    with st.spinner(f"Downloading large spaCy model ({SPACY_MODEL_NAME}). This may take a few minutes for first-time deploy..."):
+        try:
+            # spacy.cli.download respects SPACY_DATA environment variable.
+            # This will download the model into the SPACY_MODEL_DIR.
+            spacy.cli.download(SPACY_MODEL_NAME)
+            st.success(f"SpaCy '{SPACY_MODEL_NAME}' model downloaded successfully!")
+        except Exception as e:
+            st.error(f"Failed to download spaCy model '{SPACY_MODEL_NAME}': {e}")
+            st.stop() # Stop the app if model download fails critically
+else:
+    st.info(f"SpaCy '{SPACY_MODEL_NAME}' model found. Loading...")
+
+try:
+    # Load the model from the custom path (now that SPACY_DATA is set)
+    nlp = spacy.load(SPACY_MODEL_NAME)
+    st.success(f"SpaCy '{SPACY_MODEL_NAME}' model loaded successfully!")
+except Exception as e:
+    st.error(f"Failed to load spaCy model '{SPACY_MODEL_NAME}' even after download attempt: {e}")
+    st.stop()
+
 
 # --- Page Settings ---
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
@@ -44,7 +79,7 @@ def extract_skills(text):
     # Note: Ensure your 'SKILL' entity label is correct for the en_core_web_lg model
     # You might need a custom pipeline or different entity recognition for specific skills
     # If this doesn't extract skills as expected, consider fine-tuning or a different approach
-    return list(set(ent.text for ent in doc.ents if ent.label_ == "SKILL"))
+    return list(set(ent.text for ent in doc.ents if ent.label_ == "SKILL")) # Keep SKILL or change based on your nlp model's entity recognition
 
 def highlight_keywords(text, keywords):
     # This function uses regex to find whole words and make them bold with a yellow square emoji.
