@@ -9,14 +9,8 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load SpaCy small model (Streamlit Cloud friendly)
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    import spacy.cli
-    spacy.cli.download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 # --- Page Settings ---
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
 
