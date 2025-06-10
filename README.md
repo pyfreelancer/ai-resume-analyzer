@@ -2,7 +2,7 @@
 
 This is a Streamlit-based AI-powered Resume Analyzer that matches resumes against job descriptions and extracts skills using NLP.
 
-## 🚀 Features
+# 🚀 Features
 
 - Upload resumes in PDF or DOCX
 - Paste job description to compare
@@ -11,7 +11,7 @@ This is a Streamlit-based AI-powered Resume Analyzer that matches resumes agains
 - Clean, simple UI with Streamlit
 - Save results as CSV
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 - Python
 - Streamlit
@@ -19,7 +19,7 @@ This is a Streamlit-based AI-powered Resume Analyzer that matches resumes agains
 - scikit-learn (TF-IDF & Cosine Similarity)
 - PyPDF2 / python-docx
 
-## 📦 Installation
+# 📦 Installation
 
 1. **Clone this repository**
    ```bash
@@ -52,45 +52,45 @@ Your web browser should automatically open to the Streamlit application (usually
 
 5- Export: If available, use the export option to download results as a CSV.
 
-## 🖼️ Screenshots / Demo
+# 🖼️ Screenshots / Demo
 
-### Initial Application Screen (Upload Resumes & Job Description)
+## Initial Application Screen (Upload Resumes & Job Description)
 ![Screenshot of the initial application screen where resumes are uploaded](upload_screenshots/image.PNG)
 
-### Job Description Input and Analyze Button
+## Job Description Input and Analyze Button
 ![Screenshot showing the job description filled in and the 'Analyze All Resumes' button visible](upload_screenshots/image2.PNG)
 
-### Resume Match Summary Table
+## Resume Match Summary Table
 ![Screenshot displaying the table with match scores and filenames after analysis](upload_screenshots/image3.PNG)
 
-### Match Score Comparison Chart
+## Match Score Comparison Chart
 ![Screenshot illustrating the bar chart comparing the match scores of various resumes](upload_screenshots/image4.PNG)
 
 💡 Future Enhancements
-Advanced Skill Matching: Incorporate more sophisticated skill matching algorithms or external skill taxonomies.
+1- Advanced Skill Matching: Incorporate more sophisticated skill matching algorithms or external skill taxonomies.
 
-Resume Generation Feedback: Provide direct, actionable feedback for resume improvement based on analysis.
+2- Resume Generation Feedback: Provide direct, actionable feedback for resume improvement based on analysis.
 
-User Accounts & History: Allow users to save their analysis history.
+3- User Accounts & History: Allow users to save their analysis history.
 
-Deployment: Prepare the application for cloud deployment (e.g., on Heroku, AWS, Google Cloud).
+4- Deployment: Prepare the application for cloud deployment (e.g., on Heroku, AWS, Google Cloud).
 
-More File Types: Support additional resume formats if needed.
+5- More File Types: Support additional resume formats if needed.
 
 👋 Contributing
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to:
+- Contributions are welcome! If you have suggestions for improvements or new features, feel free to:
 
-Fork the repository.
+- Fork the repository.
 
-Create a new branch (git checkout -b feature/your-feature-name).
+- Create a new branch (git checkout -b feature/your-feature-name).
 
-Make your changes.
+- Make your changes.
 
-Commit your changes (git commit -m 'feat: Add new feature').
+- Commit your changes (git commit -m 'feat: Add new feature').
 
-Push to the branch (git push origin feature/your-feature-name).
+- Push to the branch (git push origin feature/your-feature-name).
 
-Open a Pull Request.
+- Open a Pull Request.
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
