@@ -1,3 +1,5 @@
+import spacy
+import os
 import streamlit as st
 import PyPDF2
 from docx import Document
@@ -8,10 +10,6 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 from spacy.cli import download
-
-# --- Load small spaCy model (en_core_web_sm) ---
-import spacy
-import os
 
 # ✅ Load local spaCy model from folder
 model_path = os.path.join(os.path.dirname(__file__), "en_core_web_sm-3.8.0")
