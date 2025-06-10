@@ -9,8 +9,12 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import en_core_web_sm
-nlp = en_core_web_sm.load()
+import spacy
+from pathlib import Path
+
+model_path = Path(__file__).parent / "en_core_web_sm"
+nlp = spacy.load(model_path)
+
 # --- Page Settings ---
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
 
