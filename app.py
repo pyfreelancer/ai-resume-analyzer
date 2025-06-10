@@ -9,9 +9,23 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load spaCy model
-nlp = spacy.load("en_core_web_lg")
-
+# --- SpaCy Model Loading ---
+# This block attempts to load the spaCy model. If it's not found (e.g., on a fresh deployment
+# environment like Streamlit Sharing), it will download it programmatically.
+try:
+    nlp = spacy.load("en_core_web_lg")
+except OSError:
+    st.warning("SpaCy 'en_core_web_lg' model not found. Attempting to download...")
+    # Using spacy.cli.download for programmatic download
+    # This might take a moment during the first run on a new environment
+    with st.spinner("Downloading large spaCy model (this may take a few minutes for first-time deploy)..."):
+        try:
+            spacy.cli.download("en_core_web_lg")
+            nlp = spacy.load("en_core_web_lg")
+            st.success("SpaCy 'en_core_web_lg' model downloaded and loaded successfully!")
+        except Exception as e:
+            st.error(f"Failed to download spaCy model: {e}")
+            st.stop() # Stop the app if model download fails critically
 # Page settings
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
 
