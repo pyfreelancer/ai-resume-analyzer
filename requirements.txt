@@ -5,8 +5,4 @@ scikit-learn
 python-docx
 PyPDF2
 matplotlib
-<<<<<<< HEAD
 seaborn
-=======
-seaborn
->>>>>>> c8189cdea530b517488bee59e7cdf631095d17e2

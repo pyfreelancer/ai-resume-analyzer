@@ -8,40 +8,14 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os 
 
-
-SPACY_MODEL_DIR = os.path.join(os.path.dirname(__file__), ".spacy_models")
-os.makedirs(SPACY_MODEL_DIR, exist_ok=True) 
-# Set the SPACY_DATA environment variable to this custom directory.
-# This tells spaCy where to look for models and where to download them using spacy.cli.download.
-os.environ["SPACY_DATA"] = SPACY_MODEL_DIR
-
-# Define the full path to the specific model within our custom directory
-model_full_path = os.path.join(SPACY_MODEL_DIR, "en_core_web_lg")
-
-# Check if the model is already downloaded in our custom path
-if not os.path.exists(model_full_path):
-    st.warning("SpaCy 'en_core_web_lg' model not found in custom path. Attempting to download...")
-    with st.spinner("Downloading large spaCy model (this may take a few minutes for first-time deploy)..."):
-        try:
-            
-            spacy.cli.download("en_core_web_lg")
-            st.success("SpaCy 'en_core_web_lg' model downloaded successfully!")
-        except Exception as e:
-            st.error(f"Failed to download spaCy model: {e}")
-            st.stop() 
-else:
-    st.info("SpaCy 'en_core_web_lg' model found. Loading...")
-
+# Load SpaCy small model (Streamlit Cloud friendly)
 try:
-    # Load the model from the custom path (if it exists) or default if SPACY_DATA is set
-    nlp = spacy.load("en_core_web_lg")
-    st.success("SpaCy 'en_core_web_lg' model loaded successfully!")
-except Exception as e:
-    st.error(f"Failed to load spaCy model even after download attempt: {e}")
-    st.stop()
-
+    nlp = spacy.load("en_core_web_sm")
+except:
+    import spacy.cli
+    spacy.cli.download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # --- Page Settings ---
 st.set_page_config(page_title="AI Resume Analyzer", layout="wide")
