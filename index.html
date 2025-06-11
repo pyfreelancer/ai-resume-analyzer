@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areej Sajjad - AI & Data Solutions Architect</title>
+    <meta name="description" content="Areej Sajjad's freelance portfolio: Expert AI & Data Science Architect building intelligent, automated solutions to drive efficiency, uncover insights, and solve complex business problems.">
+    
+    <!-- Google Fonts: Poppins (for impactful headings), Open Sans (for clean, readable body text) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for professional icons (v5.15.4 is widely supported) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* Global Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette & Typography for a Premium Look */
+        :root {
+            --primary-dark: #1f2a3a;    /* Very Deep Charcoal Blue, almost black */
+            --primary-light: #3a4759;   /* Softer, mid-tone charcoal blue */
+            --accent-green: #2ecc71;    /* Vibrant Emerald Green for key actions/highlights */
+            --accent-blue: #3498db;     /* Bright Sky Blue for secondary accents/icons */
+            --text-color-dark: #3a3a3a; /* Darker grey for primary text */
+            --text-color-light: #ecf0f1; /* Off-white for text on dark backgrounds */
+            --bg-light: #fefefe;        /* Pristine near-white background */
+            --bg-medium: #f5f7f8;       /* Subtle light grey for section contrast */
+            --card-bg: #ffffff;         /* Pure white for content cards */
+            --border-color: #e8ebed;    /* Light, subtle border */
+            --shadow-subtle: rgba(0, 0, 0, 0.06);
+            --shadow-medium: rgba(0, 0, 0, 0.12);
+            --shadow-strong: rgba(0, 0, 0, 0.25);
+            --wave-color-1: #2c3e50;
+            --wave-color-2: #3498db;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-color-dark);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+            position: relative; /* For background pseudo-elements */
+        }
+        /* Subtle geometric background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 100% 150%, var(--bg-medium) 0%, transparent 20%),
+                              radial-gradient(circle at 0% 150%, var(--bg-medium) 0%, transparent 20%),
+                              radial-gradient(circle at 100% 50%, var(--bg-medium) 0%, transparent 10%),
+                              radial-gradient(circle at 0% 50%, var(--bg-medium) 0%, transparent 10%),
+                              radial-gradient(circle at 50% 100%, var(--bg-medium) 0%, transparent 10%),
+                              radial-gradient(circle at 50% 0%, var(--bg-medium) 0%, transparent 10%);
+            background-repeat: no-repeat;
+            background-size: 80% 80%; /* Adjust size for subtlety */
+            opacity: 0.1; /* Very subtle */
+            z-index: -1;
+            animation: backgroundPan 60s infinite alternate linear;
+        }
+        @keyframes backgroundPan {
+            from { background-position: 0% 0%; }
+            to { background-position: 100% 100%; }
+        }
+
+
+        /* Preloader Styling for a smooth entry */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out;
+            opacity: 1;
+        }
+        .loader {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid var(--accent-green);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* More dynamic spin */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3.5rem auto;
+            padding: 4rem;
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px var(--shadow-subtle);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        /* Hero Section - Designed for immediate impact */
+        .hero {
+            text-align: center;
+            margin-bottom: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 5px solid var(--accent-green);
+            position: relative;
+            animation: fadeInScale 1.8s ease-out forwards;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero::before { /* Animated wave/line below header */
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--wave-color-1), var(--wave-color-2), transparent);
+            animation: waveEffect 5s infinite alternate ease-in-out;
+        }
+        @keyframes waveEffect {
+            0% { transform: translateX(-70%); opacity: 0.7; }
+            100% { transform: translateX(0%); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+            font-size: 5.5em;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.05;
+            text-shadow: 4px 4px 10px var(--shadow-subtle);
+            letter-spacing: -0.04em;
+            animation: slideInFromTop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            color: #555;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInFromBottom 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            animation-delay: 0.3s;
+        }
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        section {
+            margin-bottom: 6.5rem;
+            padding-bottom: 4.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            position: relative;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        section.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+            font-size: 4.2em;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 800;
+            position: relative;
+            text-shadow: 2px 2px 6px var(--shadow-subtle);
+            letter-spacing: -0.04em;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -25px;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 9px;
+            background-color: var(--accent-green);
+            border-radius: 7px;
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+            font-size: 3em;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin-bottom: 2em;
+            font-size: 1.2em;
+            color: #4a4a4a;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 3em;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 1.5em;
+            font-size: 1.2em;
+            color: #4a4a4a;
+        }
+
+        ul li::before {
+            content: '\f00c'; /* Font Awesome checkmark icon */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-size: 1.6em;
+            line-height: 1.2;
+            animation: bounceIn 1s ease-out forwards;
+            animation-delay: var(--delay);
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-top: 4.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-green);
+            color: var(--text-color-light);
+            padding: 25px 55px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.55em;
+            transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+            margin: 0 30px;
+            border: none;
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.6);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transform-origin: center;
+        }
+        .btn i {
+            margin-right: 15px;
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover i {
+            transform: translateX(8px) scale(1.1);
+        }
+
+        /* More noticeable pulse effect on primary button */
+        .btn:first-child:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: pulseEffect 1.8s ease-out forwards;
+            animation-iteration-count: infinite;
+        }
+        @keyframes pulseEffect {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+        }
+
+
+        .btn:hover {
+            background-color: #28b463;
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(39, 174, 96, 0.9);
+        }
+
+        .btn.secondary {
+            background-color: var(--accent-blue);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.6);
+        }
+
+        .btn.secondary:hover {
+            background-color: #5dade2;
+            box-shadow: 0 25px 60px rgba(52, 152, 219, 0.9);
+        }
+
+        /* Project Item Styling */
+        .project-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5rem;
+            margin-bottom: 6rem;
+            padding-bottom: 4.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            padding: 4.5rem;
+            box-shadow: 0 18px 50px var(--shadow-subtle);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+            position: relative;
+        }
+        .project-item:hover {
+            transform: translateY(-18px);
+            box-shadow: 0 35px 80px var(--shadow-medium);
+        }
+        .project-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .project-image {
+            flex: 1 1 550px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 22px;
+            box-shadow: 0 18px 50px var(--shadow-strong);
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .project-image:hover {
+            transform: scale(1.07);
+        }
+
+        .project-details {
+            flex: 2 1 600px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--accent-blue);
+            color: var(--text-color-light);
+            padding: 22px 40px;
+            border-radius: 50px;
+            font-size: 1.25em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.5);
+        }
+        .skill-badge i {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .skill-badge:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Usage Steps Styling */
+        .usage-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .step-card {
+            background-color: var(--bg-medium);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px var(--shadow-subtle);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--accent-green);
+        }
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px var(--shadow-medium);
+        }
+        .step-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .step-card i {
+            font-size: 3em;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+        .step-card p {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Screenshots Grid Styling */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-items: center;
+        }
+        .screenshot-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            overflow: hidden; /* Ensures image doesn't break rounded corners */
+        }
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-medium);
+        }
+        .screenshot-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .screenshot-item p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            font-size: 1.6em;
+            line-height: 2.2;
+        }
+
+        .contact-info a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #28b463;
+            text-decoration: underline;
+        }
+        .contact-info .icon {
+            margin-right: 15px;
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+
+
+        footer {
+            text-align: center;
+            margin-top: 7rem;
+            padding-top: 4rem;
+            border-top: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            font-size: 1.15em;
+        }
+        footer p {
+            margin-bottom: 1.8rem;
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--accent-green);
+            color: white;
+            cursor: pointer;
+            padding: 22px;
+            border-radius: 50%;
+            font-size: 2.2em;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: background-color 0.3s, transform 0.3s;
+            animation: bounce 2s infinite;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #28b463;
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-8px);}
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 1150px) {
+            .container {
+                margin: 3rem auto;
+                padding: 3.5rem;
+            }
+            .hero h1 {
+                font-size: 4.5em;
+            }
+            .hero p {
+                font-size: 1.9em;
+            }
+            h2 {
+                font-size: 3.8em;
+            }
+            h3 {
+                font-size: 2.8em;
+            }
+            .project-item {
+                gap: 4rem;
+                padding: 3.5rem;
+            }
+            .project-image {
+                flex: 1 1 450px;
+            }
+            .project-details {
+                flex: 2 1 500px;
+            }
+            .usage-steps {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                margin: 2.5rem auto;
+                padding: 2.5rem;
+            }
+            .hero h1 {
+                font-size: 3.8em;
+            }
+            .hero p {
+                font-size: 1.6em;
+            }
+            h2 {
+                font-size: 3em;
+            }
+            h2::after {
+                width: 120px;
+                bottom: -18px;
+            }
+            h3 {
+                font-size: 2.4em;
+            }
+            .project-item {
+                gap: 3.5rem;
+                padding: 3rem;
+                flex-direction: column;
+            }
+            .project-item:nth-child(even) {
+                flex-direction: column;
+            }
+            .btn {
+                font-size: 1.3em;
+                padding: 18px 40px;
+            }
+            .btn i {
+                margin-right: 10px;
+                font-size: 1.1em;
+            }
+            .skills-grid {
+                gap: 20px;
+            }
+            .skill-badge {
+                font-size: 1.1em;
+                padding: 16px 30px;
+            }
+            .skill-badge i {
+                margin-right: 8px;
+            }
+            .step-card h4 {
+                font-size: 1.6em;
+            }
+            .step-card i {
+                font-size: 2.5em;
+            }
+            .screenshots-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1.5rem auto;
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            h2 {
+                font-size: 2.5em;
+                margin-bottom: 2.5rem;
+            }
+            h2::after {
+                width: 80px;
+                height: 6px;
+                bottom: -15px;
+            }
+            h3 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1.1em;
+            }
+            ul li {
+                font-size: 1.1em;
+                padding-left: 35px;
+            }
+            ul li::before {
+                font-size: 1.3em;
+            }
+            .project-item {
+                gap: 2.5rem;
+                padding: 2rem;
+                border-radius: 12px;
+            }
+            .btn {
+                display: block;
+                margin: 20px auto;
+                width: calc(100% - 40px);
+                font-size: 1.2em;
+                padding: 16px 28px;
+            }
+            .skills-grid {
+                justify-content: center;
+                gap: 15px;
+            }
+            .skill-badge {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            .contact-info {
+                font-size: 1.2em;
+            }
+            .step-card {
+                padding: 2rem;
+            }
+            .step-card h4 {
+                font-size: 1.4em;
+            }
+            .step-card i {
+                font-size: 2.2em;
+            }
+            .screenshots-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            #scrollToTopBtn {
+                padding: 15px;
+                font-size: 1.6em;
+                bottom: 25px;
+                right: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container">
+        <header class="hero">
+            <h1>Areej Sajjad</h1>
+            <p>AI & Data Solutions Architect: **Transforming Complex Challenges into Tangible Value**</p>
+        </header>
+
+        <section id="about">
+            <h2>Your Vision, Amplified by Intelligent Automation</h2>
+            <p>
+                Hello there! I'm Areej, an AI & Data Science freelancer driven by a genuine passion for **building elegant, automated solutions** that truly make a difference. In today's dynamic business landscape, I believe technology should simplify, clarify, and empower. My expertise isn't just in writing code; it's in understanding your unique challenges and crafting intelligent systems that deliver measurable impact.
+            </p>
+            <p>
+                My approach is deeply collaborative. I work closely with you, listening to your needs, meticulously designing applications that exceed expectations, and building scalable solutions that don't just solve today's problems but **propel your business confidently into the future.** Let's connect and discuss how we can leverage cutting-edge AI to redefine what's possible for your operations.
+            </p>
+        </section>
+
+        <section id="expertise">
+            <h2>My Strategic Toolkit for Innovation & Impact</h2>
+            <div class="skills-grid">
+                <span class="skill-badge"><i class="fas fa-code"></i> Python Development</span>
+                <span class="skill-badge"><i class="fas fa-brain"></i> Artificial Intelligence (AI)</span>
+                <span class="skill-badge"><i class="fas fa-chart-line"></i> Machine Learning (ML)</span>
+                <span class="skill-badge"><i class="fas fa-language"></i> Natural Language Processing (NLP)</span>
+                <span class="skill-badge"><i class="fas fa-database"></i> Data Analysis & Visualization</span>
+                <span class="skill-badge"><i class="fas fa-cloud"></i> Streamlit App Development</span>
+                <span class="skill-badge"><i class="fas fa-robot"></i> Automation Scripting</span>
+                <span class="skill-badge"><i class="fas fa-globe"></i> Web Scraping Solutions</span>
+                <span class="skill-badge"><i class="fas fa-plug"></i> API Integration</span>
+                <span class="skill-badge"><i class="fas fa-server"></i> Cloud Deployment Basics</span>
+                <span class="skill-badge"><i class="fas fa-lightbulb"></i> Custom Algorithm Design</span>
+                <span class="skill-badge"><i class="fas fa-git-alt"></i> Git & Version Control</span>
+                <span class="skill-badge"><i class="fas fa-comments"></i> Client Collaboration</span>
+                <span class="skill-badge"><i class="fas fa-cogs"></i> Problem Solving & Optimization</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Where Ideas Come to Life: My Portfolio</h2>
+
+            <!-- AI Resume Analyzer Project -->
+            <div class="project-item">
+                <img src="upload_screenshots/image.PNG" alt="Initial application screen where resumes are uploaded and job description is entered" class="project-image">
+                <div class="project-details">
+                    <h3>AI Resume Analyzer: Revolutionizing Talent Acquisition</h3>
+                    <p>
+                        Imagine a recruitment process free from manual drudgery. This cutting-edge **Streamlit-powered AI solution** dramatically accelerates and enhances talent acquisition by intelligently matching candidate resumes against specific job descriptions. It's built to empower recruiters with **data-driven insights** and help job seekers finely tune their applications for maximum impact, making hiring smarter and faster.
+                    </p>
+                    <h4>Key Innovations & Impact:</h4>
+                    <ul>
+                        <li><i class="fas fa-file-alt"></i> **Automated Resume Screening:** Process **PDF & DOCX** documents at scale, slashing manual review times by up to 70%.</li>
+                        <li><i class="fas fa-brain"></i> **Advanced NLP (spaCy):** Utilizes the robust `en_core_web_lg` model for highly accurate skill identification and nuanced entity recognition.</li>
+                        <li><i class="fas fa-chart-bar"></i> **Intelligent Matching Algorithm:** Employs **TF-IDF & Cosine Similarity** to provide precise relevance scores, enabling rapid identification of top-tier candidates.</li>
+                        <li><i class="fas fa-lightbulb"></i> **Actionable Keyword Insights:** Features dynamic highlighting of job-specific keywords and suggests missing terms, empowering both recruiters and applicants.</li>
+                        <li><i class="fas fa-desktop"></i> **Streamlined UX:** An intuitive and responsive **Streamlit** interface ensures a seamless user experience from file upload to actionable insight.</li>
+                        <li><i class="fas fa-download"></i> **Data Exportability:** Enables easy export of comprehensive analysis results to CSV for further data management and reporting.</li>
+                    </ul>
+
+                    <h4>Technology Powering This Solution:</h4>
+                    <ul>
+                        <li><i class="fas fa-code"></i> **Python:** The core programming language for the application logic.</li>
+                        <li><i class="fas fa-cloud"></i> **Streamlit:** For building the interactive and user-friendly web interface.</li>
+                        <li><i class="fas fa-language"></i> **spaCy (NLP):** Specifically used for advanced NLP tasks with `en_core_web_lg` for skill extraction.</li>
+                        <li><i class="fas fa-chart-line"></i> **Scikit-learn:** Provides TF-IDF vectorization and cosine similarity for matching.</li>
+                        <li><i class="fas fa-table"></i> **Pandas:** For efficient data manipulation and analysis within the application.</li>
+                        <li><i class="fas fa-file-pdf"></i> **PyPDF2 / python-docx:** For robust text extraction from various document formats.</li>
+                    </ul>
+
+                    <div class="btn-group">
+                        <a href="https://ai-resume-analyzer-hbn3txrjpqeroeh8tpcftx.streamlit.app/" target="_blank" class="btn"><i class="fas fa-rocket"></i> Launch Live Demo</a>
+                        <a href="https://github.com/pyfreelancer/ai-resume-analyzer" target="_blank" class="btn secondary"><i class="fab fa-github"></i> Explore Code on GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Section -->
+            <section id="usage">
+                <h2>How to Use the AI Resume Analyzer</h2>
+                <p class="text-center">Getting powerful insights is simple. Follow these steps to analyze resumes against your job descriptions:</p>
+                <div class="usage-steps">
+                    <div class="step-card">
+                        <i class="fas fa-upload"></i>
+                        <h4>1. Upload Resumes</h4>
+                        <p>Use the intuitive file uploader to select one or more PDF or DOCX resume files. Drag & drop or browse from your device.</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h4>2. Enter Job Description</h4>
+                        <p>Paste the full job description text into the designated input area. This is your benchmark for comparison.</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-play-circle"></i>
+                        <h4>3. Initiate Analysis</h4>
+                        <p>Click the "Analyze All Resumes" button. The AI will process the documents and calculate match scores.</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>4. Review Insights</h4>
+                        <p>Instantly view match scores, extracted skills, and keyword highlights. See a summary table and a comparison chart.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screenshots Section -->
+            <section id="screenshots">
+                <h2>Application Screenshots</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-item">
+                        <img src="upload_screenshots/image.PNG" alt="Initial application screen where resumes are uploaded and job description is entered">
+                        <p>Initial Application Screen: Ready for resume uploads and job description input.</p>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="upload_screenshots/image2.PNG" alt="Job description input area filled with text and analyze button">
+                        <p>Job Description Input: Example of filled job description and the 'Analyze All Resumes' button visible.</p>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="upload_screenshots/image3.PNG" alt="Resume match summary table displaying scores and filenames after analysis">
+                        <p>Resume Match Summary Table: Overview of match scores and resume filenames post-analysis.</p>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="upload_screenshots/image4.PNG" alt="Bar chart comparing the match scores of various resumes">
+                        <p>Match Score Comparison: Visual representation of how resumes stack up against each other.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future Enhancements Section -->
+            <section id="future-enhancements">
+                <h2>Envisioning the Future: Enhancements & Roadmap</h2>
+                <p class="text-center">Committed to continuous innovation, here are some planned enhancements for the AI Resume Analyzer:</p>
+                <ul>
+                    <li><i class="fas fa-cogs"></i> **Advanced Skill Matching:** Incorporate more sophisticated skill matching algorithms or external skill taxonomies for even greater precision.</li>
+                    <li><i class="fas fa-comments"></i> **Resume Generation Feedback:** Provide direct, actionable feedback to users, suggesting improvements based on their resume's analysis against a job description.</li>
+                    <li><i class="fas fa-user-circle"></i> **User Accounts & History:** Implement user authentication to allow individuals to save their analysis history, favorite job descriptions, and resume versions.</li>
+                    <li><i class="fas fa-cloud-upload-alt"></i> **Cloud Deployment Optimization:** Further optimize the application for seamless and scalable cloud deployment on platforms like Heroku, AWS, or Google Cloud.</li>
+                    <li><i class="fas fa-file"></i> **Broader File Type Support:** Expand support for additional resume formats beyond PDF and DOCX, as per user demand.</li>
+                </ul>
+            </section>
+
+            <!-- Placeholder for Other Projects (if you have them) -->
+            <section id="other-projects">
+                <h2>Beyond Resumes: Other Innovative Solutions</h2>
+                <p>
+                    While the AI Resume Analyzer showcases a core aspect of my capabilities, my expertise extends to various data and AI challenges. Here are a couple of examples of other areas I can deliver value:
+                </p>
+                <div class="project-item">
+                    <img src="https://placehold.co/600x350/34495e/ecf0f1?text=Dynamic+Dashboards" alt="Placeholder image for an interactive data dashboard project" class="project-image">
+                    <div class="project-details">
+                        <h3>[Innovating] Dynamic Business Intelligence Dashboards</h3>
+                        <p>
+                            Unlock the power of your business data with intuitive, interactive dashboards. This project focuses on transforming complex raw data into **crystal-clear, actionable insights** that drive strategic decision-making. My capability to craft compelling visual narratives will empower you to understand trends, identify opportunities, and gain a significant competitive edge.
+                        </p>
+                        <div class="btn-group">
+                            <a href="https://github.com/pyfreelancer" target="_blank" class="btn"><i class="fas fa-flask"></i> Learn More</a>
+                            <a href="https://github.com/pyfreelancer" target="_blank" class="btn secondary"><i class="fab fa-github"></i> Follow My GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <img src="https://placehold.co/600x350/2c3e50/a4c6e0?text=Automated+Web+Data" alt="Placeholder image for a web scraping automation project" class="project-image">
+                    <div class="project-details">
+                        <h3>[Building] Intelligent Web Data Acquisition Systems</h3>
+                        <p>
+                            Data is the new oil, and I specialize in drilling for it. This project crafts robust, scalable Python-based automation solutions for **precise and efficient data extraction** from diverse web sources. Discover how transforming unstructured web content into valuable, structured datasets can fuel your business analysis and decision-making processes.
+                        </p>
+                        <div class="btn-group">
+                            <a href="https://github.com/pyfreelancer" target="_blank" class="btn"><i class="fas fa-code-branch"></i> Learn More</a>
+                            <a href="https://github.com/pyfreelancer" target="_blank" class="btn secondary"><i class="fab fa-github"></i> Follow My GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <section id="contact">
+            <h2>Let's Build Something Impactful Together</h2>
+            <p class="contact-info">
+                I'm actively seeking freelance opportunities to partner with forward-thinking businesses and individuals.
+                Whether you have a groundbreaking idea, a complex problem to solve with data, or need expert AI guidance, I'm eager to connect.
+                Let's discuss how my skills can bring your vision to life!
+            </p>
+            <p class="contact-info">
+                <i class="fas fa-envelope icon"></i> Email: <a href="mailto:areejsajjad44@gmail.com">areejsajjad44@gmail.com</a><br>
+                <i class="fab fa-github icon"></i> GitHub: <a href="https://github.com/pyfreelancer" target="_blank">pyfreelancer</a><br>
+                <!-- Add LinkedIn if you have one -->
+                <!-- <i class="fab fa-linkedin-in icon"></i> LinkedIn: <a href="YOUR_LINKEDIN_PROFILE_URL" target="_blank">linkedin.com/in/areejsajjad">linkedin.com/in/areejsajjad</a> -->
+            </p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Areej Sajjad (PyFreelancer). All rights reserved.</p>
+            <p>Crafted with 🧠 and code by Areej Sajjad.</p>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Preloader JavaScript
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => { // Give loader a minimum display time
+                    preloader.classList.add('fade-out');
+                    preloader.addEventListener('transitionend', function() {
+                        preloader.style.display = 'none';
+                    });
+                }, 500); // Minimum 0.5 seconds display
+            }
+
+            // Scroll-triggered animations for sections
+            const sections = document.querySelectorAll('section');
+            const observerOptions = {
+                root: null, /* viewport as root */
+                rootMargin: '0px',
+                threshold: 0.2 /* 20% of section visible to trigger */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // Stagger bullet point animations inside the section
+                        const listItems = entry.target.querySelectorAll('ul li');
+                        listItems.forEach((item, index) => {
+                            item.style.setProperty('--delay', `${index * 0.1}s`);
+                        });
+                        observer.unobserve(entry.target); /* Only animate once */
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Scroll to Top Button JavaScript
+        let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // When the user scrolls down 100px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
