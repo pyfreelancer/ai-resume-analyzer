@@ -28,17 +28,15 @@ This is a Streamlit-based AI-powered Resume Analyzer that matches resumes agains
 
 2- Install dependencies:
 Ensure you have pip installed, then install all required libraries using the requirements.txt file (you will need to generate this file first if you haven't already by running pip freeze > requirements.txt in your activated virtual environment).
-
-pip install -r requirements.txt
+     pip install -r requirements.txt
 
 3- Download the spaCy language model:
 This project specifically uses the large English model from spaCy.
-python -m spacy download en_core_web_lg
+     python -m spacy download en_core_web_lg
 
 4- Run the Streamlit application:
 Once all dependencies are installed, navigate to the project's root directory in your terminal and run the Streamlit application.
-
-streamlit run app.py # Or replace 'app.py' with the actual name of your main Streamlit file (e.g., 'main.py')
+     streamlit run app.py 
 Your web browser should automatically open to the Streamlit application (usually http://localhost:8501).
 
 🚀 Usage
