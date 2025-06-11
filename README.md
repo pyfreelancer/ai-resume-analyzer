@@ -1,7 +1,33 @@
 # 📄 AI Resume Analyzer
 
-This is a Streamlit-based AI-powered Resume Analyzer that matches resumes against job descriptions and extracts skills using NLP.
+🔗 **[👉 Try the Live App on Streamlit](https://ai-resume-analyzer-hbn3txrjpqeroeh8tpcftx.streamlit.app/)**
 
+This is a Streamlit-based AI-powered Resume Analyzer that compares resumes against a job description using NLP and machine learning. It extracts skills, calculates a match score, and highlights relevant keywords to help recruiters and job seekers.
+
+---
+
+## 🚀 Features
+
+- 📤 Upload resumes in PDF or DOCX
+- 📝 Paste job description to analyze
+- 🧠 Extracts skills using spaCy NLP
+- 📊 Calculates compatibility score using TF-IDF + Cosine Similarity
+- 📄 Highlights matching keywords in resume
+- 💾 Export results as CSV
+- 📈 Visualize match score comparison chart
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Streamlit
+- spaCy (`en_core_web_lg` model)
+- scikit-learn
+- PyPDF2 / python-docx
+- Matplotlib / Seaborn
+
+---
 # 🚀 Features
 
 - Upload resumes in PDF or DOCX
@@ -28,17 +54,15 @@ This is a Streamlit-based AI-powered Resume Analyzer that matches resumes agains
 
 2- Install dependencies:
 Ensure you have pip installed, then install all required libraries using the requirements.txt file (you will need to generate this file first if you haven't already by running pip freeze > requirements.txt in your activated virtual environment).
-
-pip install -r requirements.txt
+     pip install -r requirements.txt
 
 3- Download the spaCy language model:
 This project specifically uses the large English model from spaCy.
-python -m spacy download en_core_web_lg
+     python -m spacy download en_core_web_lg
 
 4- Run the Streamlit application:
 Once all dependencies are installed, navigate to the project's root directory in your terminal and run the Streamlit application.
-
-streamlit run app.py # Or replace 'app.py' with the actual name of your main Streamlit file (e.g., 'main.py')
+     streamlit run app.py 
 Your web browser should automatically open to the Streamlit application (usually http://localhost:8501).
 
 🚀 Usage

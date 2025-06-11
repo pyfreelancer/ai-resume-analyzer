@@ -1,22 +1,20 @@
+import spacy
+import os
 import streamlit as st
 import PyPDF2
 from docx import Document
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import spacy
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 from spacy.cli import download
 
-# --- Load small spaCy model (en_core_web_sm) ---
-try:
-    nlp = spacy.load("en_core_web_sm")
+# ✅ Load local spaCy model from folder
+model_path = os.path.join(os.path.dirname(__file__), "en_core_web_sm-3.8.0")
+nlp = spacy.load(model_path)
 
-except OSError:
-    download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
 
 # --- Define a basic skill list (can be expanded) ---
 SKILL_KEYWORDS = [
